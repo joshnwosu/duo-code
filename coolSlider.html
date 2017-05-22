@@ -1,0 +1,175 @@
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        background-color: black;
+        color: white;
+    }
+    
+    section{
+        margin: 50px auto;
+        max-width: 1300px;
+    }
+    .wrap{
+        width: 100%;
+        background-color: black;
+        height: 600px;
+        overflow: hidden;
+        position: relative;
+    }
+    .slide{
+        background-color: orange;
+        width: 100%;
+        height: 450px;
+        position: absolute;
+        top: 0;
+        transition: 1s ease;
+    }
+    .slide h1{
+        text-align: center;
+        font-size: 100px;
+        margin: 150px auto;
+    }
+    .slider1{
+        left: 0;
+    }
+    .slider2{
+        left: 100%;
+    }
+    .slider3{
+        left: 200%;
+    }
+    .pagination{
+        width: 100%;
+        position: absolute;
+        z-index: 55;
+        text-align: center;
+        bottom: 200px;
+    }
+    .pagination label{
+        background-color: #000;
+        border: 2px solid #fff;
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 1s ease;
+    }
+    .pagination label:hover{
+        background-color: #fff;
+        border: 5px solid #000;
+        opacity: .5;
+    }
+    #slider1:checked ~ .pagination .page1,
+    #slider2:checked ~ .pagination .page2,
+    #slider3:checked ~ .pagination .page3{
+        background-color: #fff;
+        border: 5px solid black;
+        opacity: 1;
+    }
+    #slider1:checked ~ .slide{
+        transform: translateX(0);
+    }
+    #slider2:checked ~ .slide{
+        transform: translateX(-100%);
+    }
+    #slider3:checked ~ .slide{
+        transform: translateX(-200%);
+    }
+    .row{
+        position: absolute;
+        margin: 50px auto;
+        width: 100%;
+        text-align: center;
+        z-index: 999;
+        bottom: -10px;
+    }
+    label.col{
+        background-color: orange;
+        width: 200px;
+        height: 70px;
+        display: inline-block;
+        opacity: .5;
+        border: 3px solid transparent;
+        cursor: pointer;
+    }
+    label.col h1{
+        line-height: 50px;
+    }
+    #slider1:checked ~ .row .col1,
+    #slider2:checked ~ .row .col2,
+    #slider3:checked ~ .row .col3{
+        border: 3px solid white;
+        opacity: 1;
+    }
+    
+    .control{
+        position: absolute;
+        z-index: 999;
+        width: 50px;
+        top: 25%;
+    }
+    .control label{
+        font-size: 100px;
+        font-weight: bold;
+        color: dimgrey;
+        text-align: center;
+        text-shadow: 0px 1px 10px rgba(0,0,0,0.3);
+        display: none;
+        cursor: pointer;
+    }
+    .next{
+        right: 1%;
+    }
+    .prev{
+        left: 1%;
+    }
+    #slider1:checked ~ .next .numb2,
+    #slider2:checked ~ .next .numb3,
+    #slider3:checked ~ .prev .numb2,
+    #slider2:checked ~ .prev .numb1{
+        display: block;
+    }
+</style>
+<section>
+    <div class="wrap">
+        <input type="radio" class="slider1-radio" name="slides" id="slider1" checked>
+        <input type="radio" class="slider2-radio" name="slides" id="slider2">
+        <input type="radio" class="slider3-radio" name="slides" id="slider3">
+
+        <div class="control prev">
+            <label for="slider1" class="numb1">&laquo;</label>
+            <label for="slider2" class="numb2">&laquo;</label>
+            <label for="slider3" class="numb3">&laquo;</label>
+        </div>
+        
+        <div class="control next">
+            <label for="slider1" class="numb1">&raquo;</label>
+            <label for="slider2" class="numb2">&raquo;</label>
+            <label for="slider3" class="numb3">&raquo;</label>
+        </div>
+        
+        
+        <div class="pagination">
+            <label for="slider1" class="page1"></label>
+            <label for="slider2" class="page2"></label>
+            <label for="slider3" class="page3"></label>
+        </div>
+        
+        <div class="slide slider1"><h1>1</h1></div>
+        <div class="slide slider2"><h1>2</h1></div>
+        <div class="slide slider3"><h1>3</h1></div>
+        
+        <div class="row">
+            <label for="slider1" class="col1 col"><h1>1</h1></label>
+            <label for="slider2" class="col2 col"><h1>2</h1></label>
+            <label for="slider3" class="col3 col"><h1>3</h1></label>
+        </div>
+
+    </div>
+
+</section>
